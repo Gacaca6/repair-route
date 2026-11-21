@@ -1,0 +1,13 @@
+{
+  "brand": "Reuse Basics",
+  "networks": [{
+    "name": "reuse_basics",
+    "front_man": "handoff_checklist",
+    "hocon": "./reuse_basics.network.json",
+    "description": "A read-only checklist of questions to ask a repair or recycling organizer."
+  }],
+  "llm_router": {"base_url": "https://api.openai.com/v1", "mock": false, "byok_router": "https://api.openai.com/v1"},
+  "allowed_peers": [],
+  "peer_policy": {"mode": "closed", "deny_origins": []},
+  "deployment": {"mode": "static", "browser_mock": false, "direct_byok": true}
+}

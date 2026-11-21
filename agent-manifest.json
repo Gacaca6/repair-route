@@ -1,0 +1,28 @@
+{
+  "brand": "Repair Route",
+  "networks": [
+    {
+      "name": "repair_route",
+      "front_man": "route_guide",
+      "hocon": "./repair_route.network.json",
+      "description": "Find source-backed electronics repair and recycling options.",
+      "tags": ["repair", "circular-economy"],
+      "sample_queries": ["Where could I repair a laptop in Kigali?", "Can I recycle old electronics in Musanze?"]
+    }
+  ],
+  "llm_router": {
+    "base_url": "https://api.openai.com/v1",
+    "mock": false,
+    "byok_router": "https://api.openai.com/v1"
+  },
+  "allowed_peers": ["https://raw.githubusercontent.com"],
+  "peer_policy": { "mode": "closed", "deny_origins": [] },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [{"network": "repair_route", "front_man": "route_guide", "aliases": ["repair_route"], "url": "repair_route"}],
+    "imports": [{"url": "https://raw.githubusercontent.com/Gacaca6/repair-route/main/peer/reuse_basics", "network": "reuse_basics"}],
+    "link_updates": {"mode": "browser-local"}
+  },
+  "deployment": {"mode": "static", "self_contained_runtime": true, "browser_mock": false, "direct_byok": true, "public_mcp_facade": false},
+  "actions": {"version": 1, "module": "./site-actions.js", "agentTools": ["find_options"]}
+}

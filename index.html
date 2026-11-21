@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find a source-backed next step for repairing or recycling electronics.">
+  <title>Repair Route</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <span class="brand">Repair Route</span>
+      <h1>Where should this device go?</h1>
+      <p>Find a published repair or recycling option, then check what to confirm before you travel.</p>
+    </header>
+    <section class="finder" aria-labelledby="finder-title">
+      <h2 id="finder-title">Find an option</h2>
+      <form id="search">
+        <label>Location <select name="area" id="area"></select></label>
+        <label>What to do <select name="action"><option value="repair">Repair</option><option value="recycle">Recycle</option></select></label>
+        <label>Item <select name="category"><option value="electronics">Electronics</option><option value="other">Other items</option></select></label>
+        <button type="submit">Find options</button>
+      </form>
+      <div id="options" aria-live="polite"></div>
+    </section>
+    <section class="assistant" aria-labelledby="ask-title">
+      <h2 id="ask-title">Ask Repair Route</h2>
+      <p>Ask about a listed area or what to check with an organizer. The provider you choose receives your messages and the directory context.</p>
+      <p id="assistant-status" role="status">Loading the assistant…</p>
+      <div id="agent-app">
+        <div data-ns-slot="header"></div>
+        <div data-ns-slot="chat"></div>
+        <div data-ns-slot="agents"></div>
+        <div data-ns-slot="settings"></div>
+      </div>
+    </section>
+    <footer><a href="agent-manifest.json">Open Agentic Web manifest</a></footer>
+  </main>
+  <script type="module" src="site.js"></script>
+</body>
+</html>
